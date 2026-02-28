@@ -1,33 +1,33 @@
-adjustAngleOneSideCutRev
-adjustAngleRate
-adjustCorrectDist
-adjustDistDelay
-adjustDistOneSideCutRev
-adjustZ
-adjustZRate
-baseAngleCutLongitudinal0
-baseAngleCutLongitudinal1
-baseAngleCutSide0
-baseAngleCutSide1
-baseAngleOneSideCutRev
-checkDistBaseToCover
-checkDistTransToCover
-correctAdjustAngle
-correctAngleWidth0
-correctAngleWidth1
-correctDist0
-correctDist1
-coverAdjustAngle
-coverAdjustDist
-coverAngle
-coverDfAngle
-coverDfAngle2
-coverDist
-coverPenaltyAngle
-diffContinueTargetLineX
-diffTargetLineX
-futureFrame
-isNearPlayerAssign
-limitDistX_MfLine
-mfLimitRate
-minCoverDist
+0 adjustAngleOneSideCutRev
+4 adjustAngleRate
+8 adjustCorrectDist
+12 adjustDistDelay
+16 adjustDistOneSideCutRev
+20 adjustZ
+24 adjustZRate
+28 baseAngleCutLongitudinal0
+32 baseAngleCutLongitudinal1
+36 baseAngleCutSide0
+40 baseAngleCutSide1
+44 baseAngleOneSideCutRev
+48 checkDistBaseToCover
+52 checkDistTransToCover
+56 correctAdjustAngle
+60 correctAngleWidth0
+64 correctAngleWidth1
+68 correctDist0
+72 correctDist1
+76 coverAdjustAngle
+80 coverAdjustDist
+84 coverAngle
+88 coverDfAngle
+92 coverDfAngle2
+96 coverDist
+100 coverPenaltyAngle
+104 diffContinueTargetLineX
+108 diffTargetLineX
+112 futureFrame
+116 isNearPlayerAssign
+120 limitDistX_MfLine
+124 mfLimitRate
+128 minCoverDist

@@ -1,4 +1,3 @@
-import importlib
 import io
 import json
 import math
@@ -27,7 +26,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from pes_ai.utils import conv_to_bytes
+from pes_ai.utils import conv_to_bytes, one_byte_bools, process_map
 
 
 class SectionItem(QListWidgetItem):
@@ -163,9 +162,11 @@ class Editor(QMainWindow):
 
         self.buffer: io.BytesIO | None = None
         self.filename: str = ""
-        self.module = None
+        self.map_type = None
+        self.pes_ver: int = 0
         self.head_len: int = 0
         self.idx_len: int = 0
+        self.section_data: dict = {}
         self.subsections: dict = {}
 
     def re_translate_ui(self):
@@ -245,19 +246,20 @@ class Editor(QMainWindow):
     def load_18_bin(self):
         self.get_filename()
         if "constant_match" in self.filename:
-            self.module = importlib.import_module("pes_ai.eighteen.match")
+            self.map_type = "match"
             self.head_len = 296
             self.idx_len = 392
         if "constant_player" in self.filename:
-            self.module = importlib.import_module("pes_ai.eighteen.player")
+            self.map_type = "player"
             self.head_len = 440
             self.idx_len = 456
         if "constant_team" in self.filename:
-            self.module = importlib.import_module("pes_ai.eighteen.team")
+            self.map_type = "team"
             self.head_len = 200
             self.idx_len = 218
 
         if self.head_len != 0 and self.idx_len != 0:
+            self.pes_ver = 18
             self.load_bin()
 
     def save_section(self, sect: SectionItem):
@@ -266,20 +268,15 @@ class Editor(QMainWindow):
         if not getattr(sect, "offset", None):
             return
 
-        sub_chk = 16 if sect.text()[:-2] == "subConcept" else 0
-        self.buffer.seek(sect.offset + sub_chk)
         for i in range(val_count):
             val = self.value_list.itemWidget(self.value_list.item(i))
             name = getattr(val, "name")
             value = getattr(val, "value")
-            if "null" in name and value == 0:
-                data = conv_to_bytes(None)
+            if isinstance(value, bool) and name not in one_byte_bools:
+                data = conv_to_bytes(int(value))
             else:
-                bool_list = getattr(self.module, "one_byte_bools")
-                if isinstance(value, bool) and name not in bool_list:
-                    data = conv_to_bytes(int(value))
-                else:
-                    data = conv_to_bytes(value)
+                data = conv_to_bytes(value)
+            self.buffer.seek(sect.offset + self.section_data[name]["offset"])
             self.buffer.write(data)
 
     def save_section_json(self):
@@ -329,13 +326,13 @@ class Editor(QMainWindow):
 
         if not curr:
             return
-        if not (func := getattr(self.module, f"map_{curr.text()[:-2]}", None)):
+
+        self.section_data = process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)
+        if not self.section_data:
             return self.add_value_widget(str(curr.length), curr.offset, True)
 
-        vals = func(self.buffer, curr.offset, curr.length)
-        for k, v in vals.items():
-            disabled = True if "padding" in k else False
-            self.add_value_widget(k, v, disabled)
+        for k, v in self.section_data.items():
+            self.add_value_widget(k, v["value"])
 
     def load_section_json(self):
         if not self.subsections:

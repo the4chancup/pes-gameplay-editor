@@ -1,48 +1,48 @@
-PossessionMfJoinDefenceLine
-ChangeTriangle
-CounterAfterGkCatch
-SideCounter
-FastCounter
-LongPassFlick
-LongPassLayOffAndToSide
-LongPassLayOffAndBreakthroughToDefenceLine
-LongPassLayOffAndShoot
-EarlyCross
-ForwardPassAndLayOff
-PassAndGoTriangle
-PenetrateInsideOneTwo
-SpaceRunToCenterForCreateSideSpace
-ToCenterDecoySide
-SpaceRunRelaySquarePass
-DisorderByOneTwo
-SideCrossRunning
-SideRunMakeSpace
-SpaceRunToCreateSpaceForOneTouchPass
-CreateSpaceOneTwo
-SideChangeToWeakSide
-SideOverlapAndSupport
-SideOverlapAndSpaceRun
-SideLongitudinalOneTwo
-SideInnerlap
-OneTwoPassFromSideToCenter
-OneTwoPassCutIn
-SupportBackOneTwo
-MoveDownMakeSpaceSide
-DiagonalPostPlay
-ForeCheckPress
-ForeCheckLineDown
-ForeCheckLineUp
-TransitionChase
-RetreatBlockCreate
-RetreatPressBack
-RetreatBlockForwardPass
-RetreatCrossBlockCreate
-ReverseSideCounter
-NetDefenceInducementIntoTheCenter
-NetDefenceCentralSurroundingPress
-PassCut
-SealOffInducementToTheSides
-SealOffSideSurroundingPress
-DoublePress
-subConcept_passRequest_all_off
-subConcept_passRequest_off
+16 PossessionMfJoinDefenceLine
+20 ChangeTriangle
+24 CounterAfterGkCatch
+28 SideCounter
+32 FastCounter
+36 LongPassFlick
+40 LongPassLayOffAndToSide
+44 LongPassLayOffAndBreakthroughToDefenceLine
+48 LongPassLayOffAndShoot
+52 EarlyCross
+56 ForwardPassAndLayOff
+60 PassAndGoTriangle
+64 PenetrateInsideOneTwo
+68 SpaceRunToCenterForCreateSideSpace
+72 ToCenterDecoySide
+76 SpaceRunRelaySquarePass
+80 DisorderByOneTwo
+84 SideCrossRunning
+88 SideRunMakeSpace
+92 SpaceRunToCreateSpaceForOneTouchPass
+96 CreateSpaceOneTwo
+100 SideChangeToWeakSide
+104 SideOverlapAndSupport
+108 SideOverlapAndSpaceRun
+112 SideLongitudinalOneTwo
+116 SideInnerlap
+120 OneTwoPassFromSideToCenter
+124 OneTwoPassCutIn
+128 SupportBackOneTwo
+132 MoveDownMakeSpaceSide
+136 DiagonalPostPlay
+140 ForeCheckPress
+144 ForeCheckLineDown
+148 ForeCheckLineUp
+152 TransitionChase
+156 RetreatBlockCreate
+160 RetreatPressBack
+164 RetreatBlockForwardPass
+168 RetreatCrossBlockCreate
+172 ReverseSideCounter
+176 NetDefenceInducementIntoTheCenter
+180 NetDefenceCentralSurroundingPress
+184 PassCut
+188 SealOffInducementToTheSides
+192 SealOffSideSurroundingPress
+196 DoublePress
+200 subConcept_passRequest_all_off
+201 subConcept_passRequest_off

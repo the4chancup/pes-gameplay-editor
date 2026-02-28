@@ -1,14 +1,14 @@
-checkAreaScore
-checkAreaScore_lineBreaker
-checkBodyAngleEyesOff
-checkBodyAngleEyesOff_lineBreaker
-checkBodyAnglePullAway
-checkBodyAnglePullAway_lineBreaker
-checkDistEyesOff
-checkDistEyesOff_lineBreaker
-checkInterceptScore
-checkInterceptScore_lineBreaker
-checkSideAngleEyesOff
-checkSideAngleEyesOff_lineBreaker
-searchCount
-searchCount_lineBreaker
+0 checkAreaScore
+4 checkAreaScore_lineBreaker
+8 checkBodyAngleEyesOff
+12 checkBodyAngleEyesOff_lineBreaker
+16 checkBodyAnglePullAway
+20 checkBodyAnglePullAway_lineBreaker
+24 checkDistEyesOff
+28 checkDistEyesOff_lineBreaker
+32 checkInterceptScore
+36 checkInterceptScore_lineBreaker
+40 checkSideAngleEyesOff
+44 checkSideAngleEyesOff_lineBreaker
+48 searchCount
+52 searchCount_lineBreaker

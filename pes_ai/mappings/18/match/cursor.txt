@@ -1,4 +1,4 @@
-dist
-distWide
-suspendTime
-waitTime
+0 dist
+4 distWide
+8 suspendTime
+12 waitTime

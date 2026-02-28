@@ -2,8 +2,8 @@
 An editor that modifies the values of the binary files located in the "dt18" CPK file of the Pro Evolution Soccer games.
 
 ## Requirements
-* Python 3.10+
-* [PySide6 6.7.2+](https://doc.qt.io/qtforpython-6/)
+* Python 3.12+
+* [PySide6 6.10.2+](https://doc.qt.io/qtforpython-6/)
 
 ## Mapping Progress
 ### constant_match.bin
@@ -71,14 +71,14 @@ An editor that modifies the values of the binary files located in the "dt18" CPK
 ### constant_team.bin
 - [x] basePosition.o
 - [x] centeringGet.o
-- [ ] combination.o
+- [x] combination.o
 - [x] defence.o
 - [x] defenceCover.o
 - [x] defenceMark.o
 - [x] diagonalRun.o
 - [x] lineBreak.o
 - [x] overlap.o
-- [ ] pairAnime.o
+- [x] pairAnime.o
 - [x] pullAway.o
 - [x] selectorVision.o
 - [x] spaceRun.o

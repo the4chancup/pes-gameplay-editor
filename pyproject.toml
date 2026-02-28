@@ -1,15 +1,12 @@
 [project]
 name = "pes-gameplay-editor"
-requires-python = ">= 3.10"
-dependencies = ["PySide6>=6.7.2"]
+requires-python = ">= 3.12"
+dependencies = ["PySide6>=6.10.2"]
 readme = "README.md"
 license = {text = "GPLv3"}
 
 [tool.ruff]
-target-version = "py310"
-
-[tool.ruff.lint.pep8-naming]
-extend-ignore-names = ["map_*"]
+target-version = "py312"
 
 [tool.isort]
 profile = "black"

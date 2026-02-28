@@ -1,21 +1,21 @@
-angleBase
-bpAngleSubAbsMax
-deltaXEnd
-deltaZMax
-deltaZMin
-distNear
-distPlayPointMax
-distXBpMax
-distXBpMax_dummyRunner
-distXOffsideLineMax
-distXOffsideLineMin
-fanAngle
-fanAngleHalfMargin
-fanAngleHalfMargin_dummyRunner
-fanAngle_dummyRunner
-fanFar
-fanFar_dummyRunner
-fanNear
-fanOffset
-moveKPHMin
-scoreMin
+0 angleBase
+4 bpAngleSubAbsMax
+8 deltaXEnd
+16 deltaZMax
+20 deltaZMin
+24 distNear
+28 distPlayPointMax
+32 distXBpMax
+36 distXBpMax_dummyRunner
+40 distXOffsideLineMax
+44 distXOffsideLineMin
+48 fanAngle
+52 fanAngleHalfMargin
+56 fanAngleHalfMargin_dummyRunner
+60 fanAngle_dummyRunner
+64 fanFar
+68 fanFar_dummyRunner
+72 fanNear
+76 fanOffset
+80 moveKPHMin
+84 scoreMin

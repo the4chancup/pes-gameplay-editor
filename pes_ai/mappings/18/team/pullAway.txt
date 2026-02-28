@@ -1,15 +1,15 @@
-angleDiff
-angleDiff_good
-checkBallDist
-checkBallDistBP
-checkBallDistBP_good
-checkBallDist_good
-checkLastLineDist
-checkLastLineDist_good
-checkZ
-checkZ_good
-eyeOff
-lastLine
-lastLineEnemy
-pullAway
-pullAwaySide
+0 angleDiff
+4 angleDiff_good
+8 checkBallDist
+12 checkBallDistBP
+16 checkBallDistBP_good
+20 checkBallDist_good
+24 checkLastLineDist
+28 checkLastLineDist_good
+32 checkZ
+36 checkZ_good
+40 eyeOff
+44 lastLine
+48 lastLineEnemy
+52 pullAway
+56 pullAwaySide

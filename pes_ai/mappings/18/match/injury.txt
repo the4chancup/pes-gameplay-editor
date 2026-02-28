@@ -1,11 +1,11 @@
-dummy
-levelDamageMicro
-levelDamageMiddle
-levelDamageMinor
-levelDamageSerious
-symptomDamageBruise
-symptomDamageFracture
-symptomDamageInflammation
-symptomDamageLaceration
-symptomDamageLigament
-symptomDamageTearMuscle
+0 dummy
+4 levelDamageMicro
+8 levelDamageMiddle
+12 levelDamageMinor
+16 levelDamageSerious
+20 symptomDamageBruise
+24 symptomDamageFracture
+28 symptomDamageInflammation
+32 symptomDamageLaceration
+36 symptomDamageLigament
+40 symptomDamageTearMuscle

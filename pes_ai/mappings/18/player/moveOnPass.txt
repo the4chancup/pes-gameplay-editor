@@ -1,5 +1,5 @@
-adjustWaitFrame
-baseWaitFrame
-continueFrame
-distMax
-distMin
+0 adjustWaitFrame
+4 baseWaitFrame
+8 continueFrame
+12 distMax
+16 distMin

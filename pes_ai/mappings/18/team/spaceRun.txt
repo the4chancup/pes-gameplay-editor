@@ -1,67 +1,67 @@
-angleDiff_chance
-angleDiff_chance_good
-angleDiff_second
-angleDiff_second_good
-backwardCurve
-chanceScore
-chanceScore_good
-checkAngleWidthSector
-checkAngleWidthSector_good
-checkAreaNum
-checkAreaNum_good
-checkBackDist_second
-checkBackDist_second_good
-checkBallDist_chance
-checkBallDist_chance_good
-checkBallDist_counter
-checkBallDist_counter_good
-checkBallDist_second
-checkBallDist_second_good
-checkBodyAngle
-checkBodyAngle_good
-checkCount
-checkCount_good
-checkCrossPointDist0_chance
-checkCrossPointDist0_chance_good
-checkCrossPointDist1_chance
-checkCrossPointDist1_chance_good
-checkCrossPointDist2_chance
-checkCrossPointDist2_chance_good
-checkFreeDist
-checkFreeDist_good
-checkInterceptScore
-checkInterceptScore_good
-checkLastLineDist_chance
-checkLastLineDist_chance_good
-checkMarginDist
-checkMarginDist_good
-checkMoveAngle
-checkMoveAngle_good
-checkOffsideLineDistX
-checkOffsideLineDistX_counter
-checkOffsideLineDistX_counter_good
-checkOffsideLineDistX_good
-checkPlayPointDist
-checkPlayPointDistX
-checkPlayPointDistX_good
-checkPlayPointDist_good
-checkScore
-checkScore_good
-checkSpaceRunCount
-checkSpaceRunCount_good
-checkZ
-checkZ_counter
-checkZ_counter_good
-checkZ_good
-checkZ_second
-checkZ_second_good
-createPassCourse
-defenceGap
-inOut
-roundTest
-searchCount
-searchCount_good
-shortConceptTest
-supportTime
-supportTime_good
-vitalSupportPrior
+0 angleDiff_chance
+4 angleDiff_chance_good
+8 angleDiff_second
+12 angleDiff_second_good
+16 backwardCurve
+20 chanceScore
+24 chanceScore_good
+28 checkAngleWidthSector
+32 checkAngleWidthSector_good
+36 checkAreaNum
+40 checkAreaNum_good
+44 checkBackDist_second
+48 checkBackDist_second_good
+52 checkBallDist_chance
+56 checkBallDist_chance_good
+60 checkBallDist_counter
+64 checkBallDist_counter_good
+68 checkBallDist_second
+72 checkBallDist_second_good
+76 checkBodyAngle
+80 checkBodyAngle_good
+84 checkCount
+88 checkCount_good
+92 checkCrossPointDist0_chance
+96 checkCrossPointDist0_chance_good
+100 checkCrossPointDist1_chance
+104 checkCrossPointDist1_chance_good
+108 checkCrossPointDist2_chance
+112 checkCrossPointDist2_chance_good
+116 checkFreeDist
+120 checkFreeDist_good
+124 checkInterceptScore
+128 checkInterceptScore_good
+132 checkLastLineDist_chance
+136 checkLastLineDist_chance_good
+140 checkMarginDist
+144 checkMarginDist_good
+148 checkMoveAngle
+152 checkMoveAngle_good
+156 checkOffsideLineDistX
+160 checkOffsideLineDistX_counter
+164 checkOffsideLineDistX_counter_good
+168 checkOffsideLineDistX_good
+172 checkPlayPointDist
+176 checkPlayPointDistX
+180 checkPlayPointDistX_good
+184 checkPlayPointDist_good
+188 checkScore
+192 checkScore_good
+196 checkSpaceRunCount
+200 checkSpaceRunCount_good
+204 checkZ
+208 checkZ_counter
+212 checkZ_counter_good
+216 checkZ_good
+220 checkZ_second
+224 checkZ_second_good
+228 createPassCourse
+232 defenceGap
+236 inOut
+240 roundTest
+244 searchCount
+248 searchCount_good
+252 shortConceptTest
+256 supportTime
+260 supportTime_good
+264 vitalSupportPrior

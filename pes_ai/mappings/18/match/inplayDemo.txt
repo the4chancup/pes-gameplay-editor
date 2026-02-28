@@ -1,9 +1,7 @@
-BlendTime
-addPenaltyX
-addPenaltyZ
-connectLimit
-isHard
-onoff
-null0
-null1
-targetAngleType
+0 BlendTime
+4 addPenaltyX
+8 addPenaltyZ
+12 connectLimit
+16 isHard
+17 onoff
+20 targetAngleType

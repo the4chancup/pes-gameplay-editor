@@ -1,39 +1,39 @@
-angleMax
-angleMaxAdjust
-angleMaxFront
-angleMaxMargin
-angleSubAbsMax
-angleSubAbsMaxMargin
-baseDistMax
-baseDistMaxAdjust
-baseDistMaxMargin
-baseXDistMax
-baseXDistMaxAdjust
-baseXDistMaxMargin
-baseZDistMax
-baseZDistMaxAdjust
-baseZDistMaxMargin
-distDash
-distDashMargin
-distDashQuick
-distJog
-distJogMargin
-distMax
-distMaxAdjust
-distMaxMargin
-distRequestPass
-distRun
-distRunMargin
-distXDashQuick
-lowerConnectionParam
-spaceRectLength
-style
-supportDist
-supportDistAdjust
-supportDistAdjustBase_Long
-supportDistSituation
-supportDistSituationBack
-supportDistSituationSide
-thicknessPillar
-upperConnectionParam
-waitTimeMax
+0 angleMax
+4 angleMaxAdjust
+8 angleMaxFront
+12 angleMaxMargin
+16 angleSubAbsMax
+20 angleSubAbsMaxMargin
+24 baseDistMax
+28 baseDistMaxAdjust
+32 baseDistMaxMargin
+36 baseXDistMax
+40 baseXDistMaxAdjust
+44 baseXDistMaxMargin
+48 baseZDistMax
+52 baseZDistMaxAdjust
+56 baseZDistMaxMargin
+60 distDash
+64 distDashMargin
+68 distDashQuick
+72 distJog
+76 distJogMargin
+80 distMax
+84 distMaxAdjust
+88 distMaxMargin
+92 distRequestPass
+96 distRun
+100 distRunMargin
+104 distXDashQuick
+108 lowerConnectionParam
+112 spaceRectLength
+116 style
+120 supportDist
+124 supportDistAdjust
+128 supportDistAdjustBase_Long
+132 supportDistSituation
+136 supportDistSituationBack
+140 supportDistSituationSide
+144 thicknessPillar
+148 upperConnectionParam
+152 waitTimeMax

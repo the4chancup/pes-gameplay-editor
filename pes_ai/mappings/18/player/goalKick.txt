@@ -1,8 +1,8 @@
-angleBase
-angleDelta
-distManualBase
-distManualDelta
-distMaxBase
-distMaxDelta
-distMinBase
-distMinDelta
+0 angleBase
+4 angleDelta
+8 distManualBase
+12 distManualDelta
+16 distMaxBase
+20 distMaxDelta
+24 distMinBase
+28 distMinDelta

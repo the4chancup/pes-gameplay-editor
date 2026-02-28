@@ -1,222 +1,221 @@
-adjustAngle_FreeKickSupport
-adjustBackOF
-adjustCloseRate_stratagy_defensive
-adjustCloseZRate_FreeKick
-adjustDefenceLine_ForeCheck
-adjustDefenceLine_Retreat
-adjustDefenceLine_strategy_defensive
-adjustDefenceLine_strategy_levelup
-adjustDfLineWidth_GoalKick
-adjustDistX_Throwin_CB
-adjustDiv
-adjustEnemyZ
-adjustFrontOF
-adjustFwLine
-adjustGapDfLine
-adjustGapDfLineAction
-adjustMoveEnemySide
-adjustReturnDist
-adjustSetplay
-adjustSideZ
-adjustSideZ_concept_side
-adjustSlideMoveSpeed
-adjustSpaceCoverRate
-adjustSupportDist_FreeKick
-adjustWidth_strategy_defensive
-adjustXCompactFW
-adjustXFromAttackAwareness3
-adjustXFromAttackAwareness4
-adjustX_FreeKick
-adjustZCompact
-adjustZMinCompact
-adjustZOneSideCut
-adjustZRate_cover
-adjustZ_FreeKick
-attackLevel
-attackLevelAdjustX
-backOffsideLine
-ballSideMaxRate_stratagy_defensive
-ballSideOpen
-baseCloseZRate_FreeKick
-baseDist_FreeKick
-baseMfTargetLineWidth
-changeDefenceNumberFromSituation
-changeWidthRate
-checkAdjustDist
-checkBaseDist
-checkReturnDist
-checkReturnDistX
-checkReturnDistZ
-checkZRate_cover
-closePenetrateZRate
-closeRate_DF_FW
-closeRate_DF_FW_Retreat
-closeRate_MF_adjustX
-closeRate_MF_adjustX_stratagy_defensive
-closeSideZRate
-closeZRateThrowin
-cornerKickOffencePlayerNumber
-cornerKickType
-cornerkickDefenceMFSide
-cornerkickDefenceMFWidth
-coverLimitXRate
-coverRateZ
-defenceCompact
-defenceFormationTest1
-defenceFormationTest2
-dfAdjustZ
-null0
-dfAdjustZCheckLenMax
-dfAdjustZCheckLenMin
-dfAdjustZCheckWidthMax
-dfAdjustZCheckWidthMin
-dfAdjustZRateMax
-dfAttackWidthBack
-dfAttackWidthForce
-dfAttackWidthFront
-dfAttackWidthMarginBack
-dfAttackWidthMarginFront
-dfCoverAdjustX
-dfCoverEnable
-dfForceAverageZ
-null1
-dfGroupRate
-dfLine
-dfLineAdjustMax
-dfLineAdjustMin
-dfLineBack
-dfLineCenterAdjustMax
-dfLineCenterAdjustMin
-dfLineCloseRate
-dfLineRate
-dfLineRate_goalKick
-dfLineWidth_3
-dfLineWidth_4
-dfLineWidth_5
-dfLineWidth_Corner
-dfUserPositionAdjustEnable
-dfUserPositionAdjustRate
-dfUserPositionAdjustTime
-diffRestartX_End
-diffRestartX_Start
-forceDashDistDefence
-forceDashDistOffence
-forceJogDist
-forceWalkDist
-freeKickAdjustRateX_MF
-freeKickAdjustRateZ
-freeKickAdjustRateZ_FW
-freekickAttackAddNum
-freekickAttackForce0
-freekickAttackForce1
-freekickAttackForce2
-fwGroupRate
-gklAdjustRateX
-gklAdjustRateZ_DF
-gklAdjustRateZ_FW
-gklAdjustRateZ_MF
-gklBaseX
-gklBaseZRate
-gklDefenceBackRate
-gklSupportRate
-gklWidthZ
-gksAdjustRateX
-gksAdjustRateZ_DF
-gksAdjustRateZ_FW
-gksAdjustRateZ_MF
-gksBaseX
-gksBaseZRate
-gksDefenceBackRate
-gksHalfLineRateX_SB
-gksPenaltyLineRateX_DF
-gksSideLineRateZ_SB
-gksWidthZ
-isAdverse
-isUseDashSituation
-jogMfLineScore
-keepDfTargetLineX
-kickoffDfLineX
-lastLineCloseMaxRate
-lengthDf
-lengthDf_Retreat
-lengthDf_SuperRetreat
-lengthOf
-limitBesideWidth
-limitBesideWidth_df
-lineControl
-lowerConnectionParam
-marginPredictionFrameAdjust
-marginPredictionFrameBase
-marginSide
-marginTargetLineX
-margin_restartX
-matchUpContinueRate
-matchUpContinueRate_FW_MF
-maxCloseXRate_FreeKick
-maxWaitTime
-mfAdjustMaxRateX
-mfGroupRate
-mfLineRate
-mfLineScore_adjustMax
-mfPushUpRate
-mfPushUpRate_offencive
-minDistMF_DF
-minDistMF_DF_stratagy_defensive
-minDistMF_FW
-minWidth
-minWidth_GoalKick
-minWidth_stratagy_defensive
-moveStartDist
-numericalRelationDefenceLine
-offenceWideLength
-offenceWideLength_concept_side
-offenceZposiAdjust
-offenceZposiAdjustDist
-onPassCourse
-openSideAdjustZRate
-player_count_backDistX
-player_count_frontDistX
-player_count_height
-pressRate
-pushUpSide
-pushUpSideBack
-rangeX_Throwin_CB
-returnControlSide
-setPlayDeclineRate
-setplayToInplayHeightMax
-setplayToInplayHeightMin
-sideBackPushUpRate
-sideClose
-sideCloseRate
-slide
-slideDistMax
-slideDistMin
-slideJudgeWidthBase
-slideJudgeWidthMargin
-slideKind
-slideWidth
-slowDownArrivalFrame
-slowDownDefenceLine
-slowDownFw
-slowDownMySide
-slowDownPassFrame
-spaceCoverRate
-speedDownRunDist
-speedUpRunDist
-speedUpTargetLine
-supportDist_FreeKick
-targetLineXVariation
-targetLineZVariation
-teamToGroupAdjustEnable
-teamToGroupAdjustEnd
-teamToGroupAdjustStart
-throwinLengthDf
-throwinWidthZ
-transitionOpenZ
-transitionPriorityX
-transitionSec
-transitionSmooth
-upperConnectionParam
-walkMfLineScore
-wideRate
-xposiRateCustom
+0 adjustAngle_FreeKickSupport
+4 adjustBackOF
+8 adjustCloseRate_stratagy_defensive
+12 adjustCloseZRate_FreeKick
+16 adjustDefenceLine_ForeCheck
+20 adjustDefenceLine_Retreat
+24 adjustDefenceLine_strategy_defensive
+28 adjustDefenceLine_strategy_levelup
+32 adjustDfLineWidth_GoalKick
+36 adjustDistX_Throwin_CB
+40 adjustDiv
+44 adjustEnemyZ
+48 adjustFrontOF
+52 adjustFwLine
+56 adjustGapDfLine
+60 adjustGapDfLineAction
+64 adjustMoveEnemySide
+68 adjustReturnDist
+72 adjustSetplay
+76 adjustSideZ
+80 adjustSideZ_concept_side
+84 adjustSlideMoveSpeed
+88 adjustSpaceCoverRate
+92 adjustSupportDist_FreeKick
+96 adjustWidth_strategy_defensive
+100 adjustXCompactFW
+104 adjustXFromAttackAwareness3
+112 adjustXFromAttackAwareness4
+116 adjustX_FreeKick
+120 adjustZCompact
+124 adjustZMinCompact
+132 adjustZOneSideCut
+136 adjustZRate_cover
+140 adjustZ_FreeKick
+144 attackLevel
+148 attackLevelAdjustX
+152 backOffsideLine
+156 ballSideMaxRate_stratagy_defensive
+160 ballSideOpen
+164 baseCloseZRate_FreeKick
+168 baseDist_FreeKick
+172 baseMfTargetLineWidth
+176 changeDefenceNumberFromSituation
+180 changeWidthRate
+184 checkAdjustDist
+188 checkBaseDist
+192 checkReturnDist
+196 checkReturnDistX
+200 checkReturnDistZ
+204 checkZRate_cover
+208 closePenetrateZRate
+212 closeRate_DF_FW
+216 closeRate_DF_FW_Retreat
+220 closeRate_MF_adjustX
+224 closeRate_MF_adjustX_stratagy_defensive
+228 closeSideZRate
+232 closeZRateThrowin
+236 cornerKickOffencePlayerNumber
+240 cornerKickType
+244 cornerkickDefenceMFSide
+248 cornerkickDefenceMFWidth
+252 coverLimitXRate
+256 coverRateZ
+260 defenceCompact
+264 defenceFormationTest1
+265 defenceFormationTest2
+266 dfAdjustZ
+268 dfAdjustZCheckLenMax
+272 dfAdjustZCheckLenMin
+276 dfAdjustZCheckWidthMax
+280 dfAdjustZCheckWidthMin
+284 dfAdjustZRateMax
+288 dfAttackWidthBack
+292 dfAttackWidthForce
+296 dfAttackWidthFront
+300 dfAttackWidthMarginBack
+304 dfAttackWidthMarginFront
+312 dfCoverAdjustX
+313 dfCoverEnable
+314 dfForceAverageZ
+316 dfGroupRate
+320 dfLine
+324 dfLineAdjustMax
+328 dfLineAdjustMin
+332 dfLineBack
+336 dfLineCenterAdjustMax
+340 dfLineCenterAdjustMin
+344 dfLineCloseRate
+348 dfLineRate
+352 dfLineRate_goalKick
+356 dfLineWidth_3
+360 dfLineWidth_4
+364 dfLineWidth_5
+368 dfLineWidth_Corner
+372 dfUserPositionAdjustEnable
+376 dfUserPositionAdjustEnable
+380 dfUserPositionAdjustRate
+384 dfUserPositionAdjustTime
+388 diffRestartX_End
+392 diffRestartX_Start
+396 forceDashDistDefence
+400 forceDashDistOffence
+404 forceJogDist
+408 forceWalkDist
+412 freeKickAdjustRateX_MF
+416 freeKickAdjustRateZ
+420 freeKickAdjustRateZ_FW
+424 freekickAttackAddNum
+428 freekickAttackForce0
+432 freekickAttackForce1
+436 freekickAttackForce2
+440 fwGroupRate
+444 gklAdjustRateX
+448 gklAdjustRateZ_DF
+452 gklAdjustRateZ_FW
+456 gklAdjustRateZ_MF
+460 gklBaseX
+464 gklBaseZRate
+468 gklDefenceBackRate
+472 gklSupportRate
+476 gklWidthZ
+480 gksAdjustRateX
+484 gksAdjustRateZ_DF
+488 gksAdjustRateZ_FW
+492 gksAdjustRateZ_MF
+496 gksBaseX
+500 gksBaseZRate
+504 gksDefenceBackRate
+508 gksHalfLineRateX_SB
+512 gksPenaltyLineRateX_DF
+516 gksSideLineRateZ_SB
+520 gksWidthZ
+524 isAdverse
+528 isUseDashSituation
+532 jogMfLineScore
+536 keepDfTargetLineX
+540 kickoffDfLineX
+544 lastLineCloseMaxRate
+548 lengthDf
+552 lengthDf_Retreat
+556 lengthDf_SuperRetreat
+560 lengthOf
+564 limitBesideWidth
+568 limitBesideWidth_df
+572 lineControl
+576 lowerConnectionParam
+580 marginPredictionFrameAdjust
+584 marginPredictionFrameBase
+588 marginSide
+592 marginTargetLineX
+596 margin_restartX
+600 matchUpContinueRate
+604 matchUpContinueRate_FW_MF
+608 maxCloseXRate_FreeKick
+612 maxWaitTime
+616 mfAdjustMaxRateX
+620 mfGroupRate
+624 mfLineRate
+628 mfLineScore_adjustMax
+632 mfPushUpRate
+636 mfPushUpRate_offencive
+640 minDistMF_DF
+644 minDistMF_DF_stratagy_defensive
+648 minDistMF_FW
+652 minWidth
+656 minWidth_GoalKick
+660 minWidth_stratagy_defensive
+664 moveStartDist
+668 numericalRelationDefenceLine
+672 offenceWideLength
+676 offenceWideLength_concept_side
+680 offenceZposiAdjust
+684 offenceZposiAdjustDist
+688 onPassCourse
+692 openSideAdjustZRate
+696 player_count_backDistX
+700 player_count_frontDistX
+704 player_count_height
+708 pressRate
+712 pushUpSide
+716 pushUpSideBack
+720 rangeX_Throwin_CB
+724 returnControlSide
+728 setPlayDeclineRate
+732 setplayToInplayHeightMax
+736 setplayToInplayHeightMin
+740 sideBackPushUpRate
+744 sideClose
+748 sideCloseRate
+752 slide
+756 slideDistMax
+760 slideDistMin
+764 slideJudgeWidthBase
+768 slideJudgeWidthMargin
+772 slideKind
+776 slideWidth
+780 slowDownArrivalFrame
+784 slowDownDefenceLine
+788 slowDownFw
+792 slowDownMySide
+796 slowDownPassFrame
+800 spaceCoverRate
+804 speedDownRunDist
+808 speedUpRunDist
+812 speedUpTargetLine
+816 supportDist_FreeKick
+820 targetLineXVariation
+824 targetLineZVariation
+828 teamToGroupAdjustEnable
+832 teamToGroupAdjustEnd
+836 teamToGroupAdjustStart
+840 throwinLengthDf
+844 throwinWidthZ
+848 transitionOpenZ
+852 transitionPriorityX
+856 transitionSec
+860 transitionSmooth
+864 upperConnectionParam
+868 walkMfLineScore
+872 wideRate
+876 xposiRateCustom

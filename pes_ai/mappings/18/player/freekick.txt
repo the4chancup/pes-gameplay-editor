@@ -1,3 +1,3 @@
-longpassInplayUse
-longpassSpeedKPHMax
-longpassSpeedKPHMin
+0 longpassInplayUse
+4 longpassSpeedKPHMax
+8 longpassSpeedKPHMin

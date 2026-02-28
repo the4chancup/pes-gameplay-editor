@@ -1,6 +1,6 @@
-rangeAngleGoalFront
-rangeAngleMax
-rangeDistForce
-rangeDistHedding
-rangeDistMiddle
-rangeDistShort
+0 rangeAngleGoalFront
+4 rangeAngleMax
+8 rangeDistForce
+12 rangeDistHedding
+16 rangeDistMiddle
+20 rangeDistShort

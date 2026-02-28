@@ -1,18 +1,18 @@
-angleDelta
-angleVelocity
-cornerKickTime1
-cornerKickTime2
-dist
-distDefence
-distInner
-distShort
-freeKickTime1
-freeKickTime2
-goalKickTime2
-kickOffTime2
-penaltyKickTime1
-penaltyKickTime2
-subtleAngleSub
-throwInTime2
-transitionTime2
-transitionTime3
+0 angleDelta
+4 angleVelocity
+8 cornerKickTime1
+12 cornerKickTime2
+16 dist
+20 distDefence
+24 distInner
+32 distShort
+40 freeKickTime1
+44 freeKickTime2
+48 goalKickTime2
+52 kickOffTime2
+60 penaltyKickTime1
+64 penaltyKickTime2
+72 subtleAngleSub
+76 throwInTime2
+80 transitionTime2
+84 transitionTime3
