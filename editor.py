@@ -230,12 +230,6 @@ class Editor(QMainWindow):
         if not self.filename.replace(" ", ""):
             return
 
-        if self.buffer:
-            self.buffer.close()
-            self.value_list.clear()
-            self.section_list.clear()
-            self.buffer = None
-
         with open(self.filename, "rb") as f:
             self.buffer = io.BytesIO(try_decompress(f.read()))
 
@@ -250,13 +244,15 @@ class Editor(QMainWindow):
         sect_lens.append(self.buffer.getbuffer().nbytes - sect_offs[-1])
 
         self.buffer.seek(self.head_len)
+        sect_names_enc = self.buffer.read(self.idx_len).split(b"\x00")
+        sect_names = [enc_str.decode("utf-8") for enc_str in sect_names_enc]
+        self.section_list.clear()
         i = 0
-        for enc_str in self.buffer.read(self.idx_len).split(b"\x00"):
-            if not enc_str:
+        for sect_name in sect_names:
+            if not sect_name:
                 continue
-
             item = SectionItem(offset=sect_offs[i], length=sect_lens[i])
-            item.setText(enc_str.decode("utf-8"))
+            item.setText(sect_name)
             self.section_list.addItem(item)
             i += 1
 
@@ -362,13 +358,7 @@ class Editor(QMainWindow):
         if not curr:
             return
 
-        try:
-            sect_data = process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)
-        except ValueError:
-            print("Python Bug: Garbage Collector is acting funny.")
-            return
-
-        if not sect_data:
+        if not (sect_data := process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)):
             return self.add_value_widget(str(curr.length), curr.offset, curr.offset, True)
 
         for k, v in sect_data.items():
