@@ -276,7 +276,7 @@ class Editor(QMainWindow):
             self.load_bin()
 
     def save_section(self, sect: SectionItem):
-        if (val_count := self.value_list.count()) in [0, 1]:
+        if not (val_count := self.value_list.count()):
             return
         if not getattr(sect, "offset", None):
             return
@@ -285,11 +285,15 @@ class Editor(QMainWindow):
             val = self.value_list.itemWidget(self.value_list.item(i))
             if not (name := getattr(val, "name", None)):
                 continue
+            elif name == str(sect.length):
+                return
+
             value = getattr(val, "value")
             if isinstance(value, bool) and name not in one_byte_bools:
                 data = conv_to_bytes(int(value))
             else:
                 data = conv_to_bytes(value)
+
             self.buffer.seek(sect.offset + getattr(val, "offset"))
             self.buffer.write(data)
 
@@ -345,6 +349,7 @@ class Editor(QMainWindow):
             widget.setMaximumSize(QSize(448, 48))
         else:
             widget = ValueWidget(name, value, offset, disabled)
+
         self.value_list.insertItem(self.value_list.count(), item)
         self.value_list.setItemWidget(item, widget)
         item.setSizeHint(widget.sizeHint())
