@@ -3,6 +3,7 @@ import json
 import math
 import struct
 import sys
+from functools import partial
 
 from PySide6.QtCore import QCoreApplication, QMetaObject, QRect, QSize, Qt
 from PySide6.QtGui import QAction
@@ -27,6 +28,7 @@ from PySide6.QtWidgets import (
 )
 
 from pes_ai.utils import conv_to_bytes, one_byte_bools, process_map
+from pes_ai.zlib import compress, try_decompress
 
 
 class SectionItem(QListWidgetItem):
@@ -37,10 +39,11 @@ class SectionItem(QListWidgetItem):
 
 
 class ValueWidget(QWidget):
-    def __init__(self, name: str, value: int | float | bool, disabled=False):
+    def __init__(self, name: str, value: int | float | bool, offset: int, disabled=False):
         super().__init__()
         self.name = name
         self.value = value
+        self.offset = offset
 
         self.resize(448, 48)
         self.setMinimumSize(QSize(448, 48))
@@ -103,8 +106,12 @@ class Editor(QMainWindow):
         self.act_load_sect.setObjectName("act_load_sect")
         self.act_save = QAction(self)
         self.act_save.setObjectName("act_save")
+        self.act_save_comp = QAction(self)
+        self.act_save_comp.setObjectName("act_save_comp")
         self.act_save_as = QAction(self)
         self.act_save_as.setObjectName("act_save_as")
+        self.act_save_as_comp = QAction(self)
+        self.act_save_as_comp.setObjectName("act_save_as_comp")
         self.act_save_sect = QAction(self)
         self.act_save_sect.setObjectName("act_save_sect")
         self.act_find = QAction(self)
@@ -144,7 +151,9 @@ class Editor(QMainWindow):
         self.menu_load.addSeparator()
         self.menu_load.addAction(self.act_load_sect)
         self.menu_save.addAction(self.act_save)
+        self.menu_save.addAction(self.act_save_comp)
         self.menu_save.addAction(self.act_save_as)
+        self.menu_save.addAction(self.act_save_as_comp)
         self.menu_save.addSeparator()
         self.menu_save.addAction(self.act_save_sect)
         self.menu_search.addAction(self.act_find)
@@ -156,6 +165,9 @@ class Editor(QMainWindow):
         self.act_load_18.triggered.connect(self.load_18_bin)
         self.act_load_sect.triggered.connect(self.load_section_json)
         self.act_save.triggered.connect(self.save_bin)
+        self.act_save_comp.triggered.connect(partial(self.save_bin, compressed=True))
+        self.act_save_as.triggered.connect(partial(self.save_bin, save_as=True))
+        self.act_save_as_comp.triggered.connect(partial(self.save_bin, compressed=True, save_as=True))
         self.act_save_sect.triggered.connect(self.save_section_json)
         self.act_find.triggered.connect(self.find_value)
         self.section_list.currentItemChanged.connect(self.load_section)
@@ -166,13 +178,12 @@ class Editor(QMainWindow):
         self.pes_ver: int = 0
         self.head_len: int = 0
         self.idx_len: int = 0
-        self.section_data: dict = {}
         self.subsections: dict = {}
 
     def re_translate_ui(self):
         window_title = QCoreApplication.translate("editor", "PES Gameplay Editor", None)
         self.setWindowTitle(window_title)
-        load_18_txt = QCoreApplication.translate("editor", "Load 18 Files", None)
+        load_18_txt = QCoreApplication.translate("editor", "Load PES18 dt18 file", None)
         load_18_short = QCoreApplication.translate("editor", "Ctrl+8", None)
         self.act_load_18.setText(load_18_txt)
         self.act_load_18.setShortcut(load_18_short)
@@ -180,14 +191,22 @@ class Editor(QMainWindow):
         load_sect_short = QCoreApplication.translate("editor", "Ctrl+Shift+L", None)
         self.act_load_sect.setText(load_sect_txt)
         self.act_load_sect.setShortcut(load_sect_short)
-        save_txt = QCoreApplication.translate("editor", "Save", None)
+        save_txt = QCoreApplication.translate("editor", "Save (Uncompressed)", None)
         save_short = QCoreApplication.translate("editor", "Ctrl+S", None)
         self.act_save.setText(save_txt)
         self.act_save.setShortcut(save_short)
-        save_as_txt = QCoreApplication.translate("editor", "Save As...", None)
+        save_comp_txt = QCoreApplication.translate("editor", "Save (Compressed)", None)
+        save_comp_short = QCoreApplication.translate("editor", "Ctrl+D", None)
+        self.act_save_comp.setText(save_comp_txt)
+        self.act_save_comp.setShortcut(save_comp_short)
+        save_as_txt = QCoreApplication.translate("editor", "Save As... (Uncompressed)", None)
         save_as_short = QCoreApplication.translate("editor", "Ctrl+Alt+S", None)
         self.act_save_as.setText(save_as_txt)
         self.act_save_as.setShortcut(save_as_short)
+        save_as_comp_txt = QCoreApplication.translate("editor", "Save As... (Compressed)", None)
+        save_as_comp_short = QCoreApplication.translate("editor", "Ctrl+Alt+D", None)
+        self.act_save_as_comp.setText(save_as_comp_txt)
+        self.act_save_as_comp.setShortcut(save_as_comp_short)
         save_sect_txt = QCoreApplication.translate("editor", "Save Section...", None)
         save_sect_short = QCoreApplication.translate("editor", "Ctrl+Shift+S", None)
         self.act_save_sect.setText(save_sect_txt)
@@ -204,8 +223,8 @@ class Editor(QMainWindow):
         self.menu_search.setTitle(menu_search_title)
 
     def get_filename(self):
-        filters = "Bin file (*.bin);;CPK file (*.cpk)"
-        f = QFileDialog.getOpenFileName(self, "CPK file", filter=filters)
+        filters = "Bin file (*.bin)"
+        f = QFileDialog.getOpenFileName(self, "Load", filter=filters)
         self.filename = f[0]
 
     def load_bin(self):
@@ -213,7 +232,7 @@ class Editor(QMainWindow):
             return
 
         with open(self.filename, "rb") as f:
-            self.buffer = io.BytesIO(f.read())
+            self.buffer = io.BytesIO(try_decompress(f.read()))
 
         sect_offs = []
         sect_lens = []
@@ -276,7 +295,7 @@ class Editor(QMainWindow):
                 data = conv_to_bytes(int(value))
             else:
                 data = conv_to_bytes(value)
-            self.buffer.seek(sect.offset + self.section_data[name]["offset"])
+            self.buffer.seek(sect.offset + getattr(val, "offset"))
             self.buffer.write(data)
 
     def save_section_json(self):
@@ -289,7 +308,7 @@ class Editor(QMainWindow):
         item = self.section_list.currentItem()
         filename = f"{item.text()[:-2]}.json"
         filters = "JSON file (*.json)"
-        f = QFileDialog.getSaveFileName(self, "JSON file", filename, filter=filters)
+        f = QFileDialog.getSaveFileName(self, "Save Section", filename, filter=filters)
 
         if not f[0].replace(" ", ""):
             return
@@ -302,18 +321,28 @@ class Editor(QMainWindow):
         with open(f[0], "w") as f:
             json.dump({item.text(): dict_out}, f, indent=4)
 
-    def save_bin(self):
+    def save_bin(self, compressed: bool = False, save_as: bool = False):
         if not self.subsections:
             return
         # noinspection PyTypeChecker
         self.save_section(self.section_list.currentItem())
-        with open(self.filename, "wb") as f:
+        filename_save_as = None
+        if save_as:
+            filters = "Bin file (*.bin)"
+            f = QFileDialog.getSaveFileName(self, "Save As", self.filename, filter=filters)
+            if not f[0].replace(" ", ""):
+                return
+            filename_save_as = f[0]
+        with open(filename_save_as or self.filename, "wb") as f:
             self.buffer.seek(0)
-            f.write(self.buffer.read())
+            if compressed:
+                f.write(compress(self.buffer.read()))
+            else:
+                f.write(self.buffer.read())
 
-    def add_value_widget(self, name: str, value: float | int | bool, disabled=False):
+    def add_value_widget(self, name: str, value: float | int | bool, offset: int, disabled=False):
         item = QListWidgetItem()
-        widget = ValueWidget(name, value, disabled)
+        widget = ValueWidget(name, value, offset, disabled)
         self.value_list.insertItem(self.value_list.count(), item)
         self.value_list.setItemWidget(item, widget)
         item.setSizeHint(widget.sizeHint())
@@ -327,12 +356,11 @@ class Editor(QMainWindow):
         if not curr:
             return
 
-        self.section_data = process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)
-        if not self.section_data:
-            return self.add_value_widget(str(curr.length), curr.offset, True)
+        if not (sect_data := process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)):
+            return self.add_value_widget(str(curr.length), curr.offset, curr.offset, True)
 
-        for k, v in self.section_data.items():
-            self.add_value_widget(k, v["value"])
+        for k, v in sect_data.items():
+            self.add_value_widget(k, v["value"], v["offset"])
 
     def load_section_json(self):
         if not self.subsections:

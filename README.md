@@ -80,7 +80,7 @@ An editor that modifies the values of the binary files located in the "dt18" CPK
 - [x] overlap.o
 - [x] pairAnime.o
 - [x] pullAway.o
-- [x] selectorVision.o
+- [ ] selectorVision.o
 - [x] spaceRun.o
 - [x] subConcept.o
 - [x] support.o
