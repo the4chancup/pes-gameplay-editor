@@ -178,7 +178,6 @@ class Editor(QMainWindow):
         self.pes_ver: int = 0
         self.head_len: int = 0
         self.idx_len: int = 0
-        self.subsections: dict = {}
 
     def re_translate_ui(self):
         window_title = QCoreApplication.translate("editor", "PES Gameplay Editor", None)
@@ -231,6 +230,12 @@ class Editor(QMainWindow):
         if not self.filename.replace(" ", ""):
             return
 
+        if self.buffer:
+            self.buffer.close()
+            self.value_list.clear()
+            self.section_list.clear()
+            self.buffer = None
+
         with open(self.filename, "rb") as f:
             self.buffer = io.BytesIO(try_decompress(f.read()))
 
@@ -242,25 +247,18 @@ class Editor(QMainWindow):
             sect_offs.append(sect_off)
 
         del sect_lens[0]
-        sect_lens.append(len(self.buffer.getvalue()) - sect_offs[-1])
+        sect_lens.append(self.buffer.getbuffer().nbytes - sect_offs[-1])
 
         self.buffer.seek(self.head_len)
         i = 0
-        self.subsections.clear()
         for enc_str in self.buffer.read(self.idx_len).split(b"\x00"):
             if not enc_str:
                 continue
 
-            sect_name = enc_str.decode("utf-8")
-            sect_dict = {"offset": sect_offs[i], "length": sect_lens[i]}
-            self.subsections[sect_name] = sect_dict
-            i += 1
-
-        self.section_list.clear()
-        for k, v in self.subsections.items():
-            item = SectionItem(offset=v["offset"], length=v["length"])
-            item.setText(k)
+            item = SectionItem(offset=sect_offs[i], length=sect_lens[i])
+            item.setText(enc_str.decode("utf-8"))
             self.section_list.addItem(item)
+            i += 1
 
     def load_18_bin(self):
         self.get_filename()
@@ -289,7 +287,8 @@ class Editor(QMainWindow):
 
         for i in range(val_count):
             val = self.value_list.itemWidget(self.value_list.item(i))
-            name = getattr(val, "name")
+            if not (name := getattr(val, "name", None)):
+                continue
             value = getattr(val, "value")
             if isinstance(value, bool) and name not in one_byte_bools:
                 data = conv_to_bytes(int(value))
@@ -299,7 +298,7 @@ class Editor(QMainWindow):
             self.buffer.write(data)
 
     def save_section_json(self):
-        if not self.subsections:
+        if not self.section_list.count():
             return
 
         if (val_count := self.value_list.count()) in [0, 1]:
@@ -322,10 +321,11 @@ class Editor(QMainWindow):
             json.dump({item.text(): dict_out}, f, indent=4)
 
     def save_bin(self, compressed: bool = False, save_as: bool = False):
-        if not self.subsections:
+        if not self.section_list.count():
             return
         # noinspection PyTypeChecker
         self.save_section(self.section_list.currentItem())
+
         filename_save_as = None
         if save_as:
             filters = "Bin file (*.bin)"
@@ -333,16 +333,22 @@ class Editor(QMainWindow):
             if not f[0].replace(" ", ""):
                 return
             filename_save_as = f[0]
-        with open(filename_save_as or self.filename, "wb") as f:
-            self.buffer.seek(0)
-            if compressed:
-                f.write(compress(self.buffer.read()))
-            else:
-                f.write(self.buffer.read())
 
-    def add_value_widget(self, name: str, value: float | int | bool, offset: int, disabled=False):
+        with open(filename_save_as or self.filename, "wb") as f:
+            if compressed:
+                f.write(compress(self.buffer.getvalue()))
+            else:
+                f.write(self.buffer.getbuffer())
+
+    def add_value_widget(self, name: str, value: float | int | bool, offset: int, disabled=False, padding=False):
         item = QListWidgetItem()
-        widget = ValueWidget(name, value, offset, disabled)
+        if padding:
+            widget = QWidget()
+            widget.resize(448, 48)
+            widget.setMinimumSize(QSize(448, 48))
+            widget.setMaximumSize(QSize(448, 48))
+        else:
+            widget = ValueWidget(name, value, offset, disabled)
         self.value_list.insertItem(self.value_list.count(), item)
         self.value_list.setItemWidget(item, widget)
         item.setSizeHint(widget.sizeHint())
@@ -356,14 +362,23 @@ class Editor(QMainWindow):
         if not curr:
             return
 
-        if not (sect_data := process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)):
+        try:
+            sect_data = process_map(self.buffer, curr.text()[:-2], self.map_type, curr.offset, self.pes_ver)
+        except ValueError:
+            print("Python Bug: Garbage Collector is acting funny.")
+            return
+
+        if not sect_data:
             return self.add_value_widget(str(curr.length), curr.offset, curr.offset, True)
 
         for k, v in sect_data.items():
-            self.add_value_widget(k, v["value"], v["offset"])
+            if "padding" in k:
+                self.add_value_widget(k, 0, 0, padding=True)
+            else:
+                self.add_value_widget(k, v["value"], v["offset"])
 
     def load_section_json(self):
-        if not self.subsections:
+        if not self.section_list.count():
             return
 
         filters = "JSON file (*.json)"
@@ -399,7 +414,7 @@ class Editor(QMainWindow):
                     getattr(val, "ui_value").setValue(value)
 
     def find_value(self):
-        if not self.subsections:
+        if not self.section_list.count():
             return
 
         text, ok = QInputDialog.getText(self, "Find", "Find what:")

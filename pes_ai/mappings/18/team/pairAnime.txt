@@ -7,9 +7,11 @@
 17 protectAuto5
 18 protectButton
 20 protectDribbleTouchNum
+padding
 48 pes15TestDecideTiming_enable
 52 pes15TestDecideTiming_maxSec
 56 pes15TestDecideTiming_minSec
+padding
 64 decideTiming_moveSec
 72 decideTiming_stopSec
 80 moveContact_firstAttackEnd_enable
@@ -29,6 +31,7 @@
 192 stamina_effect
 196 stamina_max
 200 stamina_min
+padding
 208 stopContact_keepBodyAngleSub
 212 stopContact_myGoalAngleEnable
 216 stopEnable

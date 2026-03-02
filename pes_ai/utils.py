@@ -144,12 +144,24 @@ def process_map(data: BytesIO, map_name: str, map_type: str, offset: int, pes_ve
         except FileNotFoundError:
             return variables
 
+    i = 0
     for entry in file:
-        entry_off, entry_name = entry.split(" ")
+        if entry.startswith("#"):
+            continue
+        if "padding" in entry:
+            entry_name = f"padding{i}"
+            entry_off = 0
+            i += 1
+        else:
+            entry_split = entry.split(" ")
+            entry_name = entry_split[1]
+            entry_off = int(entry_split[0])
 
-        data.seek(int(offset + int(entry_off)))
-        variables[entry_name] = {"offset": int(entry_off), "value": None}
-        if entry_name in bools:
+        data.seek(offset + entry_off)
+        variables[entry_name] = {"offset": entry_off, "value": None}
+        if "padding" in entry_name:
+            continue
+        elif entry_name in bools:
             variables[entry_name]["value"] = bool(unpack("<i", data.read(4))[0])
         elif entry_name in one_byte_bools:
             variables[entry_name]["value"] = unpack("?", data.read(1))[0]

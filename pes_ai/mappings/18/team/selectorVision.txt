@@ -1,0 +1,35 @@
+32 offerNum_diagonalRun1
+36 offerNum_diagonalRun2
+40 offerNum_diagonalRun3
+44 offerNum_diagonalRun4
+48 offerNum_diagonalRun5
+padding
+64 offerNum_lineBreak1
+68 offerNum_lineBreak2
+72 offerNum_lineBreak3
+76 offerNum_lineBreak4
+80 offerNum_lineBreak5
+padding
+96 offerNum_pullAway1
+100 offerNum_pullAway2
+104 offerNum_pullAway3
+108 offerNum_pullAway4
+112 offerNum_pullAway5
+padding
+128 offerNum_spaceRunChance1
+132 offerNum_spaceRunChance2
+136 offerNum_spaceRunChance3
+140 offerNum_spaceRunChance4
+144 offerNum_spaceRunChance5
+padding
+160 offerNum_spaceRunCounter1
+164 offerNum_spaceRunCounter2
+168 offerNum_spaceRunCounter3
+172 offerNum_spaceRunCounter4
+176 offerNum_spaceRunCounter5
+padding
+192 offerNum_spaceRunSecondLine1
+196 offerNum_spaceRunSecondLine2
+200 offerNum_spaceRunSecondLine3
+204 offerNum_spaceRunSecondLine4
+208 offerNum_spaceRunSecondLine5
